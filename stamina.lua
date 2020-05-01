@@ -7,13 +7,13 @@ action = require(scriptPath() .. "mod/action")
 sys = require(scriptPath() .. "mod/sys")
 --endregion
 
--- TODO: insert `checks.conn_error_retryable()` at some stage to prevent connection error
-
 while true do
     local current_status = status.get_current()
 
     if current_status == status.IN_GAME then
         counter.unlock()
+
+        checks.conn_error_retryable()
 
         checks.in_game_re()
         checks.in_game_re_confirm()  -- After clicking confirmed, it's possible to immediately return to this status
@@ -42,6 +42,7 @@ while true do
         if not checks.in_game() then
             action.click_delay(coords.clear_re_confirm)
         end
+        checks.conn_error_retryable()
     elseif current_status == status.STAMINA_FILL then
         if not checks.stamina_honey_fill() then
             action.fill_stamina_click()
@@ -55,9 +56,11 @@ while true do
         if not checks.in_game() then
             action.click_delay(coords.stamina_honey_confirm)
         end
+        checks.conn_error_retryable()
     elseif current_status == status.UNKNOWN then
         checks.in_game()
         checks.clear()
+        checks.conn_error_retryable()
     else
         scriptExit(string.format("Unhandled state: %s\nScript terminated.", current_status))
     end
