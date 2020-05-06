@@ -1,6 +1,6 @@
 local logger = {}
 
-log_stream = io.open(scriptPath() .. "log.txt", "a+")
+local log_stream = io.open(scriptPath() .. "log.txt", "a+")
 
 ---log_message
 ---
@@ -21,7 +21,7 @@ end
 ---
 ---@param message string message to be logged
 function logger.screenshot_message(message)
-	screenshot_message_file_suffix(message, "")
+	logger.screenshot_message_file_suffix(message, "")
 end
 
 ---screenshot_message_file_suffix
@@ -36,12 +36,12 @@ end
 function logger.screenshot_message_file_suffix(message, file_suffix)
 	setImagePath(scriptPath() .. "image/log")
 
-	fileName = string.format("%s-%s.png", os.date("%y%m%d-%H%M%S"), file_suffix)
+	local fileName = string.format("%s-%s.png", os.date("%y%m%d-%H%M%S"), file_suffix)
 
 	log_stream:write(string.format("Screenshot saved at %s. Message: %s\n", fileName, message))
 
-	screen = getAppUsableScreenSize()
-	reg = Region(0, 0, screen:getX(), screen:getY())
+	local screen = getAppUsableScreenSize()
+	local reg = Region(0, 0, screen:getX(), screen:getY())
 	reg:save(fileName)
 
 	setImagePath(scriptPath() .. "image")
