@@ -1,5 +1,6 @@
 --region Imports
 logger = require(scriptPath() .. "mod/logger")
+sys = require(scriptPath() .. "mod/sys")
 --endregion
 
 local counter = {}
@@ -38,8 +39,8 @@ function counter.count_pass()
         count_pass = count_pass + 1
         logger.log_message(
                 string.format(
-                        "%s - Passed Once. New Counter Status: %s",
-                        os.date("%c"), counter.get_formatted_text()))
+                        "[%s] Passed Once. New Counter Status: %s",
+                        sys.get_current_datetime(), counter.get_formatted_text()))
         log_csv(true)
     end
     counter_lock = true
@@ -51,7 +52,7 @@ function counter.count_fail()
         logger.log_message(
                 string.format(
                         "%s - Failed Once. New Counter Status: %s",
-                        os.date("%c"), counter.get_formatted_text()))
+                        sys.get_current_datetime(), counter.get_formatted_text()))
         log_csv(false)
     end
     counter_lock = true
@@ -73,9 +74,9 @@ end
 ---@param passed boolean if the quest is passed
 function log_csv(passed)
     if passed then
-        csv_stream:write("1,1\n")
+        csv_stream:write(string.format("%s,1,1\n", sys.get_current_datetime()))
     else
-        csv_stream:write("0,1\n")
+        csv_stream:write(string.format("%s,0,1\n", sys.get_current_datetime()))
     end
 end
 --endregion
