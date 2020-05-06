@@ -40,7 +40,7 @@ function counter.count_pass()
                 string.format(
                         "%s - Passed Once. New Counter Status: %s",
                         os.date("%c"), counter.get_formatted_text()))
-        log_csv()
+        log_csv(true)
     end
     counter_lock = true
 end
@@ -52,7 +52,7 @@ function counter.count_fail()
                 string.format(
                         "%s - Failed Once. New Counter Status: %s",
                         os.date("%c"), counter.get_formatted_text()))
-        log_csv()
+        log_csv(false)
     end
     counter_lock = true
 end
@@ -64,11 +64,19 @@ function counter.get_formatted_text()
             counter.get_pass_pct())
 end
 
-function log_csv()
-    csv_stream:write(string.format("%d,%d,%f%%\n",
-            counter.get_count_pass(),
-            counter.get_count_total(),
-            counter.get_pass_pct()))
+---log_csv
+---
+---Log a csv entry for stats.
+---
+---Only logs "0,1" (Failed) or "1,1" (Passed) so that the stats does not limited in a single run.
+---
+---@param passed boolean if the quest is passed
+function log_csv(passed)
+    if passed then
+        csv_stream:write("1,1\n")
+    else
+        csv_stream:write("0,1\n")
+    end
 end
 --endregion
 
