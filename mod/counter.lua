@@ -35,7 +35,7 @@ function counter.count_pass()
     if not counter_lock then
         logger.log_message(
                 string.format(
-                        "%s - Passed Once. New Counter Status: %s\n",
+                        "%s - Passed Once. New Counter Status: %s",
                         os.date("%c"), counter.get_formatted_text()))
         count_pass = count_pass + 1
     end
@@ -46,7 +46,7 @@ function counter.count_fail()
     if not counter_lock then
         logger.log_message(
                 string.format(
-                        "%s - Failed Once. New Counter Status: %s\n",
+                        "%s - Failed Once. New Counter Status: %s",
                         os.date("%c"), counter.get_formatted_text()))
         count_fail = count_fail + 1
     end
