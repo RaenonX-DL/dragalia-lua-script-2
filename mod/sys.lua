@@ -54,8 +54,4 @@ function system.generate_toast()
 end
 --endregion
 
-function system.get_current_datetime()
-    return os.date("%Y-%m-%d %H:%M:%S")
-end
-
 return system

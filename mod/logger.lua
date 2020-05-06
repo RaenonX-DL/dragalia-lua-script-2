@@ -1,7 +1,3 @@
---region Imports
-sys = require(scriptPath() .. "mod/sys")
---endregion
-
 local logger = {}
 
 local log_stream = io.open(scriptPath() .. "log.txt", "a+")
