@@ -53,7 +53,7 @@ end
 
 --region Initialize
 logger.log_message("\n===============")
-logger.log_message(string.format("Starts at %s", sys.get_current_datetime()))
+logger.log_message(string.format("Starts at %s", os.date("%Y-%m-%d %H:%M:%S")))
 --endregion
 
 return logger
