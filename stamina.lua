@@ -18,6 +18,22 @@ while true do
         checks.in_game_re()
         checks.in_game_re_confirm()  -- After clicking confirmed, it's possible to immediately return to this status
         checks.clear()
+        -- Overtime
+        if checks.prepare_main() then
+            counter.count_fail()
+        end
+    elseif current_status == status.QUEST_MAIN then
+        if not checks.prepare_support() then
+            action.click_delay(coords.quest_click)
+        end
+    elseif current_status == status.QUEST_SUPPORT then
+        if not checks.prepare_team() then
+            action.click_delay(coords.quest_support)
+        end
+    elseif current_status == status.QUEST_TEAM then
+        if not checks.in_game() and not checks.stamina_fill() then
+            action.click_delay(coords.quest_start)
+        end
     elseif current_status == status.IN_GAME_RE then
         counter.count_fail()
 

@@ -2,6 +2,9 @@ local status = {}
 
 --region States
 status.UNKNOWN = "Unknown"
+status.QUEST_MAIN = "Quest / Main"
+status.QUEST_SUPPORT = "Quest / Support"
+status.QUEST_TEAM = "Quest / Team"
 status.IN_GAME = "Game"
 status.IN_GAME_RE = "Game / Re"
 status.IN_GAME_RE_CONFIRM = "Game / Re-Confirm"

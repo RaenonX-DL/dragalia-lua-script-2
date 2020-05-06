@@ -1,5 +1,11 @@
 local coords = {}
 
+--region Quest Prepare
+coords.quest_click = Location(724, 1059)  -- Click the quest to play (the top most one)
+coords.quest_support = Location(764, 1262)  -- Support at the top (so that if support unavailable will not click empty spot)
+coords.quest_start = Location(1144, 2409)  -- Start the quest
+--endregion
+
 --region In Game
 coords.in_game_re = Location(1044, 1739)  -- In game replay first dialog
 coords.in_game_re_confirm = Location(1044, 1783)  -- In game replay second dialog

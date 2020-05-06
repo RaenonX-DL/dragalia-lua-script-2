@@ -1,5 +1,22 @@
 local image = {}
 
+--region Quest Prepare
+image.quest_main = {
+    path = "quest-present.png";
+    region = Region(1021, 109, 87, 54);
+}
+
+image.quest_support = {
+    path = "quest-solo.png";
+    region = Region(291, 858, 104, 60);
+}
+
+image.quest_team = {
+    path = "quest-start.png";
+    region = Region(1168, 2427, 112, 66);
+}
+--endregion
+
 --region In Game
 image.in_game = {
     path = "in-game.png";

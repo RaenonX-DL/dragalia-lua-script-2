@@ -65,10 +65,10 @@ function counter.get_formatted_text()
 end
 
 function log_csv()
-    return string.format("%d,%d,%f%%",
+    csv_stream:write(string.format("%d,%d,%f%%\n",
             counter.get_count_pass(),
             counter.get_count_total(),
-            counter.get_pass_pct())
+            counter.get_pass_pct()))
 end
 --endregion
 

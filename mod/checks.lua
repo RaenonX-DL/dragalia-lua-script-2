@@ -7,6 +7,32 @@ action = require(scriptPath() .. "mod/action")
 
 local checks = {}
 
+--region Quest Prepare
+---prepare_main
+---
+---Check: images.quest_main
+---New Status: status.QUEST_MAIN
+function checks.prepare_main()
+    return base.check_image(images.quest_main, status.QUEST_MAIN)
+end
+
+---prepare_support
+---
+---Check: images.quest_support
+---New Status: status.QUEST_SUPPORT
+function checks.prepare_support()
+    return base.check_image(images.quest_support, status.QUEST_SUPPORT)
+end
+
+---prepare_team
+---
+---Check: images.quest_team
+---New Status: status.QUEST_TEAM
+function checks.prepare_team()
+    return base.check_image(images.quest_team, status.QUEST_TEAM)
+end
+--endregion
+
 --region In Game
 ---in_game
 ---
