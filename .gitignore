@@ -1,4 +1,4 @@
-image.org/
-.utils/
 .materials/
 .idea/
+*.csv
+*.bat

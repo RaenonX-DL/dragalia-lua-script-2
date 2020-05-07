@@ -1,1 +1,0 @@
-.utils/resize.bat 25 image.org image
