@@ -1,78 +1,162 @@
-local image = {}
+local images = {}
 
 --region Quest Prepare
-image.quest_main = {
+images.quest_main = {
     path = "quest-present.png";
     region = Region(1021, 109, 87, 54);
 }
 
-image.quest_support = {
+images.quest_support = {
     path = "quest-solo.png";
     region = Region(291, 858, 104, 60);
 }
 
-image.quest_team = {
+images.quest_team = {
     path = "quest-start.png";
     region = Region(1168, 2427, 112, 66);
 }
 --endregion
 
+--region Raid
+local banner_region = Region(0, 805, 1440, 1390)
+
+images.raid_banner_nrm = {
+    path = "raid-nrm.png";
+    region = banner_region;
+}
+
+images.raid_banner_ex = {
+    path = "raid-ex.png";
+    region = banner_region;
+}
+
+images.raid_banner_hell = {
+    path = "raid-hell.png";
+    region = banner_region;
+}
+
+images.raid_difficulty = {
+    path = "raid-diff.png";
+    region = Region(33, 596, 190, 75);
+}
+
+images.raid_multi_select = {
+    path = "raid-multi-sel.png";
+    region = Region(76, 603, 189, 69);
+}
+
+images.raid_multi_search = {
+    path = "raid-multi-search.png";
+    region = Region(711, 1452, 122, 68);
+}
+
+images.raid_no_room = {
+    path = "rm-re-search.png";
+    region = Region(943, 1778, 177, 68);
+}
+
+images.raid_search_error = {
+    path = "close.png";
+    region = Region(601, 1768, 219, 87);
+}
+
+images.raid_in_room = {
+    path = "rm-leave.png";
+    region = Region(121, 2379, 120, 65);
+}
+
+images.raid_host_left = {
+    path = "host-left.png";
+    region = Region(767, 1368, 120, 68);
+}
+
+images.raid_not_prepared = {
+    path = "rm-not-prep.png";
+    region = Region(1092, 2428, 108, 67);
+}
+--endregion
+
 --region In Game
-image.in_game = {
+images.in_game = {
     path = "in-game.png";
     region = Region(1311, 138, 67, 53);
 }
 
-image.in_game_re = {
+images.in_game_re = {
     path = "re-play.png";
     region = Region(948, 1707, 188, 73);
 }
 
-image.in_game_re_confirm = {
+images.in_game_re_confirm = {
     path = "re-play.png";
     region = Region(929, 1731, 224, 110);
 }
 --endregion
 
 --region Quest Clear
-image.clear = {
+images.clear_next = {
     path = "clear-next.png";
     region = Region(1012, 2632, 130, 71);
 }
 
-image.clear_re = {
+images.clear_level_up = {
+    path = "clear-lvup.png";
+    region = Region(78, 336, 1286, 820);
+}
+
+images.clear_re = {
     path = "clear-re.png";
     region = Region(1052, 2059, 114, 71);
 }
 
-image.clear_re_confirm = {
+images.clear_re_confirm = {
     path = "clear-re-confirm.png";
     region = Region(83, 881, 131, 77);
+}
+
+images.clear_no_continue = {
+    path = "clear-ncont.png";
+    region = Region(261, 2209, 283, 67);
 }
 --endregion
 
 --region Stamina Refill
-image.stamina_fill = {
+images.stamina_fill = {
     path = "stamina-insuf.png";
     region = Region(342, 1947, 286, 72);
 }
 
-image.stamina_honey_fill = {
+images.stamina_honey_fill = {
     path = "stamina-insuf.png";
     region = Region(342, 898, 278, 77);
 }
 
-image.stamina_honey_confirm = {
+images.stamina_honey_confirm = {
     path = "stamina-confirm.png";
     region = Region(925, 1750, 128, 71);
 }
 --endregion
 
 --region Exceptional Cases
-image.conn_error_retryable = {
+images.conn_error_retryable = {
     path = "retry.png";
     region = Region(900, 1758, 272, 112);
 }
+
+images.conn_error_retryable = {
+    path = "retry.png";
+    region = Region(900, 1758, 272, 112);
+}
+
+images.conn_error_not_retryable = {
+    path = "err.png";
+    region = Region(767, 1365, 118, 71);
+}
+
+images.close_dialog = {
+    path = "close.png";
+    region = Region(0, 91, 1440, 2720);
+}
 --endregion
 
-return image
+return images

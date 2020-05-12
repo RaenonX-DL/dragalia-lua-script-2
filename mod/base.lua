@@ -7,9 +7,9 @@ local base = {}
 
 ---check_image
 ---
----Check the image in the `region` with the image at `path`.
+---Check the image in the ``region`` with the image at ``path``.
 ---
----If found, update the status to be the `new_status` and execute `true_func`.
+---If found, update the status to be the ``new_status`` and execute ``true_func``.
 ---
 ---@param image_obj table `table` containing the image path and region to check
 ---@param new_status string new status if image found and this parameter is provided (not nil)

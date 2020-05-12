@@ -6,7 +6,7 @@ local log_stream = io.open(scriptPath() .. "log.txt", "a+")
 ---
 ---Log a message.
 ---
----Automatically attaches the newline character for `message`.
+---Automatically attaches the newline character for ``message``.
 ---
 ---@param message string message to be logged
 function logger.log_message(message)
@@ -17,7 +17,7 @@ end
 ---
 ---Take a screenshot and save it with a log message.
 ---
----Automatically attaches the newline character for `message`.
+---Automatically attaches the newline character for ``message``.
 ---
 ---@param message string message to be logged
 function logger.screenshot_message(message)
@@ -27,9 +27,9 @@ end
 ---screenshot_message_file_suffix
 ---
 ---Take a screenshot and save it with a log message.
----The screenshot file name will have a `file_suffix` at the end.
+---The screenshot file name will have a ``file_suffix`` at the end.
 ---
----Automatically attaches the newline character for `message`.
+---Automatically attaches the newline character for ``message``.
 ---
 ---@param message string message to be logged
 ---@param file_suffix string file name suffix to be attached

@@ -1,5 +1,6 @@
 --region Imports
 base = require(scriptPath() .. "mod/base")
+coords = require(scriptPath() .. "mod/coords")
 images = require(scriptPath() .. "mod/images")
 status = require(scriptPath() .. "mod/status")
 action = require(scriptPath() .. "mod/action")
@@ -33,6 +34,81 @@ function checks.prepare_team()
 end
 --endregion
 
+--region Raid
+---raid_difficulty
+---
+---Check: images.raid_difficulty
+---New Status: status.RAID_DFCT
+function checks.raid_difficulty()
+    return base.check_image(images.raid_difficulty, status.RAID_DFCT)
+end
+
+---raid_multi_select
+---
+---Check: images.raid_multi_select
+---New Status: status.RAID_MULTI
+function checks.raid_multi_select()
+    return base.check_image(images.raid_multi_select, status.RAID_MULTI)
+end
+
+---raid_multi_search
+---
+---Check: images.raid_multi_search
+---New Status: status.RAID_MULTI_SEARCH
+function checks.raid_multi_search()
+    return base.check_image(images.raid_multi_search, status.RAID_MULTI_SEARCH)
+end
+
+function checks.raid_no_room()
+    return base.check_image(images.raid_no_room, status.RAID_MULTI_SEARCH, function(loc)
+        click(loc)
+    end)
+end
+
+---raid_search_error
+---
+---Click on "Close" if any error dialog popped up when searching the rooms
+---and update the current status to ``status.RAID_MULTI``.
+---
+---Currently known possible errors:
+---
+---- 3007: Connection Error
+---
+---Check: images.raid_search_error
+---New Status: status.RAID_MULTI
+function checks.raid_search_error()
+    return base.check_image(images.raid_search_error, status.RAID_MULTI, function(loc)
+        click(loc)
+    end)
+end
+
+---raid_in_room
+---
+---Check: images.raid_in_room
+---New Status: status.RAID_IN_ROOM
+function checks.raid_in_room()
+    return base.check_image(images.raid_in_room, status.RAID_IN_ROOM)
+end
+
+function checks.raid_host_left()
+    return base.check_image(images.raid_host_left, status.QUEST_MAIN, function()
+        click(coords.host_left)
+    end)
+end
+
+---raid_not_prepared
+---
+---Click on the "Prepare" button if it seems not prepared.
+---
+---Check: images.raid_not_prepared
+---New Status: (original status)
+function checks.raid_not_prepared()
+    return base.check_image(images.raid_not_prepared, status.get_current(), function(loc)
+        click(loc)
+    end)
+end
+--endregion
+
 --region In Game
 ---in_game
 ---
@@ -62,10 +138,22 @@ end
 --region Quest Clear
 ---clear
 ---
----Check: images.clear
+---Check: images.clear_next
 ---New Status: status.CLEAR
 function checks.clear()
-    return base.check_image(images.clear, status.CLEAR)
+    return base.check_image(images.clear_next, status.CLEAR)
+end
+
+---clear_level_up
+---
+---If "Level Up" is seen, click at the bottom of the screen to dismiss it.
+---
+---Check: images.clear_next
+---New Status: status.CLEAR
+function checks.clear_level_up()
+    return base.check_image(images.clear_level_up, status.CLEAR, function()
+        click(coords.clear_level_up)
+    end)
 end
 
 ---clear_re
@@ -82,6 +170,30 @@ end
 ---New Status: status.CLEAR_RE_CONFIRM
 function checks.clear_re_confirm()
     return base.check_image(images.clear_re_confirm, status.CLEAR_RE_CONFIRM)
+end
+
+---clear_next
+---
+---Click on "Next" and set the status to ``new_status`` or (original status).
+---
+---Check: images.clear_next
+---New Status: ``new_status`` or (original status)
+function checks.clear_next(new_status)
+    return base.check_image(images.clear_next, new_status or status.get_current(), function (loc)
+        click(loc)
+    end)
+end
+
+---clear_no_continue
+---
+---Click on "No continue" and set the status to (original status).
+---
+---Check: images.clear_no_continue
+---New Status: (original status)
+function checks.clear_no_continue()
+    return base.check_image(images.clear_no_continue, status.get_current(), function (loc)
+        click(loc)
+    end)
 end
 --endregion
 
@@ -120,6 +232,32 @@ end
 ---New Status: (original status)
 function checks.conn_error_retryable()
     return base.check_image(images.conn_error_retryable, status.get_current(), function(loc)
+        click(loc)
+    end)
+end
+
+---conn_error_not_retryable
+---
+---Click "Close" when detected a NON_RETRYABLE connection error
+---
+---Check: images.conn_error_not_retryable
+---New Status: new_status or (original status)
+function checks.conn_error_not_retryable(new_status)
+    return base.check_image(images.conn_error_not_retryable, new_status or status.get_current(), function(loc)
+        click(coords.conn_error_not_retryable)
+    end)
+end
+
+---close_dialog
+---
+---Click "Close" whenever a dialog is found and set the status to ``new_status`` or (original status).
+---
+---Check: images.close_dialog
+---New Status: ``new_status`` or (original status)
+---
+---@param new_status string new status after closing the dialog
+function checks.close_dialog(new_status)
+    return base.check_image(images.close_dialog, new_status or status.get_current(), function(loc)
         click(loc)
     end)
 end

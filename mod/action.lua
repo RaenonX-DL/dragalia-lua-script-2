@@ -1,4 +1,6 @@
 --region Imports
+coords = require(scriptPath() .. "mod/coords")
+images = require(scriptPath() .. "mod/images")
 configs = require(scriptPath() .. "mod/configs")
 counter = require(scriptPath() .. "mod/counter")
 status = require(scriptPath() .. "mod/status")
@@ -32,7 +34,7 @@ end
 --endregion
 
 ---click_delay
----Click on `location` and then wait for `delay` seconds.
+---Click on ``location`` and then wait for ``delay`` seconds.
 ---
 ---@param location Location location to be clicked
 ---@param delay number seconds to wait
