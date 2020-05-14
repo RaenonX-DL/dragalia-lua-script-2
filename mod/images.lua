@@ -22,12 +22,12 @@ local banner_region = Region(0, 805, 1440, 1390)
 
 images.raid_banner_nrm = {
     path = "raid-nrm.png";
-    region = banner_region;
+    region = Region(316, 871, 121, 1139);
 }
 
 images.raid_banner_ex = {
     path = "raid-ex.png";
-    region = banner_region;
+    region = Region(788, 918, 188, 1108);
 }
 
 images.raid_banner_hell = {
@@ -96,7 +96,7 @@ images.in_game_re_confirm = {
 --region Quest Clear
 images.clear_next = {
     path = "clear-next.png";
-    region = Region(1012, 2632, 130, 71);
+    region = Region(1014, 2634, 67, 68);
 }
 
 images.clear_level_up = {

@@ -28,6 +28,9 @@ while true do
         checks.raid_in_room()
         checks.raid_search_error()
         checks.raid_no_room()
+
+        -- Fast-skip host (not waiting members to ready)
+        checks.in_game()
     elseif current_status == status.RAID_IN_ROOM then
         checks.raid_not_prepared()
         checks.raid_host_left()

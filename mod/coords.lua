@@ -8,7 +8,7 @@ coords.quest_start = Location(1144, 2409)  -- Start the quest
 
 --region Raid
 coords.banner_swipe1 = Location(720, 1600)  -- Starting point of the swiping to find the banner
-coords.banner_swipe2 = Location(720, 1000)  -- Ending point of the swiping to find the banner
+coords.banner_swipe2 = Location(720, 1200)  -- Ending point of the swiping to find the banner
 
 coords.difficulty_1 = Location(720, 1075)  -- Top most difficulty
 coords.difficulty_2 = Location(720, 1486)  -- 2nd top most difficulty
