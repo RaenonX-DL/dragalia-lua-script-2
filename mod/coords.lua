@@ -21,6 +21,10 @@ coords.host_left = Location(720, 1810)  -- Room host left
 --region In Game
 coords.in_game_re = Location(1044, 1739)  -- In game replay first dialog
 coords.in_game_re_confirm = Location(1044, 1783)  -- In game replay second dialog
+
+coords.in_game_normal_attack = Location(1101, 1560)  -- Coordinate to be clicked for normal in_game_normal_attack
+coords.in_game_s1 = Location(513, 2545)  -- Coordinate of skill 1
+coords.in_game_s2 = Location(798, 2545)  -- Coordinate of skill 2 (should NOT overlap with the `next` button when quest cleared)
 --endregion
 
 --region Quest Clear

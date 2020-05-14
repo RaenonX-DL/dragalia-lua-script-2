@@ -41,9 +41,12 @@ while true do
     elseif current_status == status.IN_GAME then
         counter.unlock()
 
+        action_raid.in_battle()
+
         checks.clear_level_up()
         checks.close_dialog(status.CLEAR)
         checks.clear()
+        checks.conn_error_retryable()
     elseif current_status == status.CLEAR then
         counter.count_pass()
 
@@ -51,6 +54,7 @@ while true do
         checks.clear_no_continue()
         checks.close_dialog()
         checks.prepare_main()
+        checks.conn_error_retryable()
     elseif current_status == status.UNKNOWN then
         checks.prepare_main()
     else

@@ -27,7 +27,7 @@ images.raid_banner_nrm = {
 
 images.raid_banner_ex = {
     path = "raid-ex.png";
-    region = Region(788, 918, 188, 1108);
+    region = Region(541, 996, 122, 1304);
 }
 
 images.raid_banner_hell = {
