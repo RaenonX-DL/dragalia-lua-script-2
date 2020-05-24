@@ -18,6 +18,8 @@ while true do
         checks.in_game_re()
         checks.in_game_re_confirm()  -- After clicking confirmed, it's possible to immediately return to this status
         checks.clear()
+        checks.close_dialog(status.CLEAR)
+
         -- Overtime
         if checks.prepare_main() then
             counter.count_fail()
@@ -45,6 +47,7 @@ while true do
         action.click_delay(coords.in_game_re_confirm)
     elseif current_status == status.CLEAR then
         counter.count_pass()
+        checks.close_dialog()
 
         if not checks.clear_re() then
             -- Prevent additional click if the next image is detected
