@@ -40,7 +40,7 @@ coords.clear_cancel_weekly = Location(385, 1873)  -- "Cancel" button when asking
 
 --region Stamina Refill
 coords.stamina_honey_fill = Location(750, 1745)  -- Fill stamina using honey (item type selection)
-coords.stamina_honey_add = Location(1246, 1903)  -- "+" button to add honeys to consume / do not overlap consume
+coords.stamina_honey_add = Location(1256, 1219)  -- "+" button to add honeys to consume / do not overlap consume
 coords.stamina_honey_consume = Location(1032, 2167)  -- Click consume honey
 coords.stamina_honey_confirm = Location(1022, 1784)  -- Confirm to consume honey
 --endregion
