@@ -118,6 +118,11 @@ images.clear_no_continue = {
     path = "clear-ncont.png";
     region = Region(261, 2209, 283, 67);
 }
+
+images.clear_weekly_bonus = {
+    path = "weekly.png";
+    region = Region(416, 1516, 250, 66);
+}
 --endregion
 
 --region Stamina Refill

@@ -18,7 +18,8 @@ while true do
         checks.in_game_re()
         checks.in_game_re_confirm()  -- After clicking confirmed, it's possible to immediately return to this status
         checks.clear()
-        checks.close_dialog(status.CLEAR)
+        checks.clear_weekly_bonus()
+        checks.close_dialog()
 
         -- Overtime
         if checks.prepare_main() then

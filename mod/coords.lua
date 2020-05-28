@@ -34,6 +34,8 @@ coords.clear_re = Location(1003, 2058)  -- "Replay" after clicking the button ab
 coords.clear_re_confirm = Location(1038, 1809)  -- Confirm quest replay
 
 coords.clear_next = Location(1075, 2661)  -- "Next" button on quest clear
+
+coords.clear_cancel_weekly = Location(385, 1873)  -- "Cancel" button when asking if the weekly bonus should be claimed
 --endregion
 
 --region Stamina Refill

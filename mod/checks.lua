@@ -195,6 +195,18 @@ function checks.clear_no_continue()
         click(loc)
     end)
 end
+
+---clear_weekly_bonus
+---
+---Click on "Cancel" when seeing the dialog of claiming the weekly bonus.
+---
+---Check: images.clear_weekly_bonus
+---New Status: status.CLEAR
+function checks.clear_weekly_bonus()
+    return base.check_image(images.clear_weekly_bonus, status.CLEAR, function ()
+        click(coords.clear_cancel_weekly)
+    end)
+end
 --endregion
 
 --region Stamina Refill
