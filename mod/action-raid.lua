@@ -48,6 +48,7 @@ function action_raid.check_raid_banner()
     end
 
     dragDrop(coords.banner_swipe1, coords.banner_swipe2)
+    wait(0.5)  -- Slight delay for the scrolling effect to complete
     return false
 end
 

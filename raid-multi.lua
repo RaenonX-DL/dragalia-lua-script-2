@@ -57,6 +57,7 @@ while true do
         checks.conn_error_retryable()
     elseif current_status == status.UNKNOWN then
         checks.prepare_main()
+        checks.clear()
     else
         scriptExit(string.format("Unhandled state: %s\nScript terminated.", current_status))
     end
