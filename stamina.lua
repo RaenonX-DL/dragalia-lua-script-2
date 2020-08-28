@@ -82,7 +82,11 @@ while true do
         checks.clear()
         checks.conn_error_retryable()
     else
-        scriptExit(string.format("Unhandled state: %s\nScript terminated.", current_status))
+        sys.terminate(string.format("Unhandled state: %s\nScript terminated.", current_status))
+    end
+
+    if counter.get_count_pass() >= configs.total_games then
+        sys.terminate(string.format("Target games (%d) reached.", counter.get_count_pass()))
     end
 
     sys.generate_toast()
