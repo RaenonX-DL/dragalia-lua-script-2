@@ -10,7 +10,7 @@ configs.toast_cd_sec = 5
 --endregion
 
 --region Game
-configs.stamina_fill_type = "Honey"  -- Honey / Diamantiums
+configs.stamina_fill_type = "Gems"  -- Honey / Diamantiums / Gems
 configs.stamina_fill_honey_count = 4
 
 configs.total_games = 100

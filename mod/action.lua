@@ -9,6 +9,18 @@ status = require(scriptPath() .. "mod/status")
 local action = {}
 
 --region Stamina Refill
+
+function action.stamina_check_item_fill()
+    if configs.stamina_fill_type == "Honey" then
+        return checks.stamina_honey_fill()
+    elseif configs.stamina_fill_type == "Diamantiums" or configs.stamina_fill_type == "Gems" then
+        return checks.stamina_diam_gem_fill()
+    else
+        scriptExit(string.format("Unhandled stamina fill type: %s\nScript terminated.", configs.stamina_fill_type))
+    end
+end
+
+
 ---fill_stamina_click
 ---
 ---Click the type of the items to be consumed which is configured in `configs.lua`.
@@ -17,6 +29,10 @@ local action = {}
 function action.fill_stamina_click()
     if configs.stamina_fill_type == "Honey" then
         click(coords.stamina_honey_fill)
+    elseif configs.stamina_fill_type == "Diamantiums" then
+        click(coords.stamina_diam_fill)
+    elseif configs.stamina_fill_type == "Gems" then
+        click(coords.stamina_gem_fill)
     else
         scriptExit(string.format("Unhandled stamina fill type: %s\nScript terminated.", configs.stamina_fill_type))
     end

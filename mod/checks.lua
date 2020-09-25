@@ -226,6 +226,14 @@ function checks.stamina_honey_fill()
     return base.check_image(images.stamina_honey_fill, status.STAMINA_HONEY_FILL)
 end
 
+---stamina_diam_gem_fill
+---
+---Check: images.stamina_use_diam
+---New Status: status.STAMINA_DIAM_GEM_FILL
+function checks.stamina_diam_gem_fill()
+    return base.check_image(images.stamina_use_diam, status.STAMINA_DIAM_GEM_FILL)
+end
+
 ---stamina_honey_confirm
 ---
 ---Check: images.stamina_honey_confirm
@@ -255,7 +263,7 @@ end
 ---Check: images.conn_error_not_retryable
 ---New Status: new_status or (original status)
 function checks.conn_error_not_retryable(new_status)
-    return base.check_image(images.conn_error_not_retryable, new_status or status.get_current(), function(loc)
+    return base.check_image(images.conn_error_not_retryable, new_status or status.get_current(), function()
         click(coords.conn_error_not_retryable)
     end)
 end

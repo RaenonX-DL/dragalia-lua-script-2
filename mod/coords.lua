@@ -43,6 +43,11 @@ coords.stamina_honey_fill = Location(750, 1745)  -- Fill stamina using honey (it
 coords.stamina_honey_add = Location(1256, 1219)  -- "+" button to add honeys to consume / do not overlap consume
 coords.stamina_honey_consume = Location(1032, 2167)  -- Click consume honey
 coords.stamina_honey_confirm = Location(1022, 1784)  -- Confirm to consume honey
+
+coords.stamina_diam_fill = Location(720, 1089)  -- Fill stamina using diamantiums (item type selection)
+coords.stamina_gem_fill = Location(752, 1408)  -- Fill stamina using gems (item type selection)
+
+coords.stamina_diam_gem_use = Location(1057, 1870)  -- Fill stamina using diamantiums / gems (click use)
 --endregion
 
 --region Exceptional Cases

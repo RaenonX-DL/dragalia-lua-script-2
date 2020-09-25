@@ -136,6 +136,11 @@ images.stamina_honey_fill = {
     region = Region(342, 898, 278, 77);
 }
 
+images.stamina_use_diam = {
+    path = "stamina-use-diam.png";
+    region = Region(929, 1834, 122, 71);
+}
+
 images.stamina_honey_confirm = {
     path = "stamina-confirm.png";
     region = Region(925, 1750, 128, 71);

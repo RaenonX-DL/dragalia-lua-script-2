@@ -64,7 +64,7 @@ while true do
         end
         checks.conn_error_retryable()
     elseif current_status == status.STAMINA_FILL then
-        if not checks.stamina_honey_fill() then
+        if not action.stamina_check_item_fill() then
             action.fill_stamina_click()
         end
     elseif current_status == status.STAMINA_HONEY_FILL then
@@ -77,6 +77,10 @@ while true do
             action.click_delay(coords.stamina_honey_confirm)
         end
         checks.conn_error_retryable()
+    elseif current_status == status.STAMINA_DIAM_GEM_FILL then
+        if not checks.in_game() then
+            action.click_delay(coords.stamina_diam_gem_use)
+        end
     elseif current_status == status.UNKNOWN then
         checks.in_game()
         checks.clear()
