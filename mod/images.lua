@@ -22,12 +22,12 @@ local banner_region = Region(0, 805, 1440, 1390)
 
 images.raid_banner_nrm = {
     path = "raid-nrm.png";
-    region = Region(316, 871, 121, 1139);
+    region = Region(255, 825, 120, 1433);
 }
 
 images.raid_banner_ex = {
     path = "raid-ex.png";
-    region = Region(0, 788, 1440, 1271);
+    region = Region(0, 825, 1440, 1433);
 }
 
 images.raid_banner_hell = {
