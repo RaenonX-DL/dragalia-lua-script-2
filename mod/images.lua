@@ -50,6 +50,11 @@ images.raid_multi_search = {
     region = Region(711, 1452, 122, 68);
 }
 
+images.raid_create_room_id = {
+    path = "room-id.png";
+    region = Region(965, 1551, 59, 55);
+}
+
 images.raid_no_room = {
     path = "rm-re-search.png";
     region = Region(943, 1778, 177, 68);
@@ -63,6 +68,11 @@ images.raid_search_error = {
 images.raid_in_room = {
     path = "rm-leave.png";
     region = Region(121, 2379, 120, 65);
+}
+
+images.raid_skip_and_start = {
+    path = "raid-start.png";
+    region = Region(923, 1780, 117, 66);
 }
 
 images.raid_host_left = {
@@ -166,6 +176,13 @@ images.conn_error_not_retryable = {
 images.close_dialog = {
     path = "close.png";
     region = Region(0, 91, 1440, 2720);
+}
+
+-- Stricter dialog with close text detection
+-- This excludes the text "close" during raid co-op room selection
+images.close_dialog_strict = {
+    path = "close.png";
+    region = Region(0, 249, 1440, 1875);
 }
 --endregion
 

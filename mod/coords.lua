@@ -14,6 +14,7 @@ coords.difficulty_1 = Location(720, 1075)  -- Top most difficulty
 coords.difficulty_2 = Location(720, 1486)  -- 2nd top most difficulty
 
 coords.random_room = Location(720, 1630)  -- Random join room
+coords.create_room = Location(408, 1326)  -- Create a room
 
 coords.host_left = Location(720, 1810)  -- Room host left
 --endregion

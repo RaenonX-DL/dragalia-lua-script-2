@@ -59,6 +59,20 @@ function checks.raid_multi_search()
     return base.check_image(images.raid_multi_search, status.RAID_MULTI_SEARCH)
 end
 
+---raid_create_room_id
+---
+---Check: images.raid_create_room_id
+---New Status: status.RAID_MULTI_CREATE_ID
+function checks.raid_create_room_id()
+    return base.check_image(images.raid_create_room_id, status.RAID_MULTI_CREATE_ID, function(loc)
+        click(loc)
+    end)
+end
+
+---raid_no_room
+---
+---Check: images.raid_no_room
+---New Status: status.RAID_MULTI_SEARCH
 function checks.raid_no_room()
     return base.check_image(images.raid_no_room, status.RAID_MULTI_SEARCH, function(loc)
         click(loc)
@@ -90,9 +104,23 @@ function checks.raid_in_room()
     return base.check_image(images.raid_in_room, status.RAID_IN_ROOM)
 end
 
+---raid_host_left
+---
+---Check: images.raid_host_left
+---New Status: status.QUEST_MAIN
 function checks.raid_host_left()
     return base.check_image(images.raid_host_left, status.QUEST_MAIN, function()
         click(coords.host_left)
+    end)
+end
+
+---raid_skip_and_start
+---
+---Check: images.raid_skip_and_start
+---New Status: status.RAID_IN_ROOM_STARTED
+function checks.raid_skip_and_start()
+    return base.check_image(images.raid_skip_and_start, status.RAID_IN_ROOM_STARTED, function(loc)
+        click(loc)
     end)
 end
 
@@ -278,6 +306,23 @@ end
 ---@param new_status string new status after closing the dialog
 function checks.close_dialog(new_status)
     return base.check_image(images.close_dialog, new_status or status.get_current(), function(loc)
+        click(loc)
+    end)
+end
+--endregion
+
+---close_dialog_strict
+---
+---Click "Close" whenever a dialog is found and set the status to ``new_status`` or (original status).
+---
+---This is stricter than `checks.close_dialog()`
+---
+---Check: images.close_dialog_strict
+---New Status: ``new_status`` or (original status)
+---
+---@param new_status string new status after closing the dialog
+function checks.close_dialog_strict(new_status)
+    return base.check_image(images.close_dialog_strict, new_status or status.get_current(), function(loc)
         click(loc)
     end)
 end

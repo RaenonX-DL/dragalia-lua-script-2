@@ -20,30 +20,23 @@ while true do
             action_raid.click_raid_difficulty()
         end
     elseif current_status == status.RAID_MULTI then
-        if not checks.raid_multi_search() then
-            action.click_delay(coords.random_room, 3)
-        end
-        checks.raid_search_error()
-		checks.stamina_fill()
-		
-        -- Fast-skip host (not waiting members to ready)
-        checks.in_game()
-    elseif current_status == status.RAID_MULTI_SEARCH then
+        action.click_delay(coords.create_room)
+        checks.raid_create_room_id()
+    elseif current_status == status.RAID_MULTI then
+        action.click_delay(coords.create_room)
+        checks.raid_create_room_id()
+    elseif current_status == status.RAID_MULTI_CREATE_ID then
         checks.raid_in_room()
-        checks.raid_search_error()
-        checks.raid_no_room()
-        checks.close_dialog()
-
-        -- Fast-skip host (not waiting members to ready)
-        checks.in_game()
+        checks.stamina_fill()
+        checks.close_dialog_strict(status.RAID_MULTI)
     elseif current_status == status.RAID_IN_ROOM then
-        checks.raid_not_prepared()
+        action.click_delay(coords.quest_start)
+        checks.raid_skip_and_start()
+    elseif current_status == status.RAID_IN_ROOM_STARTED then
         checks.in_game()
-		checks.raid_host_left()
 
 		checks.conn_error_not_retryable(status.QUEST_MAIN)
         checks.conn_error_retryable()
-        checks.close_dialog(status.CLEAR)
     elseif current_status == status.IN_GAME then
         counter.unlock()
 
@@ -78,11 +71,12 @@ while true do
     elseif current_status == status.STAMINA_DIAM_GEM_FILL then
         if not checks.in_game() or not checks.raid_multi_search() or not checks.raid_in_room() then
             action.click_delay(coords.stamina_diam_gem_use)
-			status.update(status.RAID_MULTI_SEARCH)
+			status.update(status.RAID_IN_ROOM)
         end
     elseif current_status == status.UNKNOWN then
         checks.prepare_main()
         checks.clear()
+        checks.close_dialog()
     else
         scriptExit(string.format("Unhandled state: %s\nScript terminated.", current_status))
     end
