@@ -42,8 +42,19 @@ end
 ---
 ---Fill the stamina using honey with the configured count.
 function action.fill_stamina_honey()
+    local click_coord
+    if configs.stamina_fill_pos == 1 then
+        click_coord = coords.stamina_honey_add_1
+    elseif configs.stamina_fill_pos == 2 then
+        click_coord = coords.stamina_honey_add_2
+    elseif configs.stamina_fill_pos == 3 then
+        click_coord = coords.stamina_honey_add_3
+    else
+        scriptExit(string.format("Unknown stamina fill position: %d\nScript terminated.", configs.stamina_fill_pos))
+    end
+
     for _ = 1, configs.stamina_fill_honey_count do
-        click(coords.stamina_honey_add)
+        click(click_coord)
         wait(1)
     end
 end

@@ -71,22 +71,6 @@ end
 ---
 ---Action to perform in the battle
 function action_raid.in_battle()
-    if configs.raid_quest == "EX" then
-        for _ = 1, 3 do
-            click(coords.in_game_normal_attack)
-            wait(0.1)
-        end
-
-        click(coords.in_game_s1)
-        wait(0.1)
-        click(coords.in_game_s2)
-        wait(0.1)
-
-        for _ = 1, 3 do
-            click(coords.in_game_normal_attack)
-            wait(0.1)
-        end
-    end
 end
 
 return action_raid
