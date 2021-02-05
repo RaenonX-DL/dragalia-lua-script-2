@@ -1,7 +1,8 @@
 local coords = {}
 
 --region Quest Prepare
-coords.quest_click = Location(724, 1059)  -- Click the quest to play (the top most one)
+coords.quest_click = Location(724, 1563)  -- Click the quest to play (the top most one)
+-- 1059 for the top most one
 coords.quest_support = Location(764, 1262)  -- Support at the top (so that if support unavailable will not click empty spot)
 coords.quest_start = Location(1144, 2409)  -- Start the quest
 --endregion

@@ -26,7 +26,7 @@ while true do
             counter.count_fail()
         end
     elseif current_status == status.QUEST_MAIN then
-        if not checks.prepare_support() then
+        if checks.prepare_support() then
             action.click_delay(coords.quest_click)
         end
     elseif current_status == status.QUEST_SUPPORT then
@@ -82,6 +82,7 @@ while true do
             action.click_delay(coords.stamina_diam_gem_use)
         end
     elseif current_status == status.UNKNOWN then
+        checks.prepare_main()
         checks.in_game()
         checks.clear()
         checks.conn_error_retryable()
