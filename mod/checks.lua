@@ -32,6 +32,16 @@ end
 function checks.prepare_team()
     return base.check_image(images.quest_team, status.QUEST_TEAM)
 end
+
+---prepare_team_dual
+---
+---Check: images.quest_team_dual
+---New Status: status.QUEST_TEAM
+function checks.prepare_team_dual()
+    return base.check_image(images.quest_team_dual, status.IN_GAME, function(loc)
+        click(loc)
+    end)
+end
 --endregion
 
 --region Raid

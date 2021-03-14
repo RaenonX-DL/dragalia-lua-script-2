@@ -10,9 +10,12 @@ configs.toast_cd_sec = 5
 --endregion
 
 --region Game
+configs.quest_pos = 1  -- 1 / 2
+configs.quest_dual_party = true
+
 configs.stamina_fill_type = "Gems"  -- Honey / Diamantiums / Gems
-configs.stamina_fill_honey_count = 3
-configs.stamina_fill_pos = 3  -- 1: Top / 2: Mid / 3: Bot
+configs.stamina_fill_honey_count = 4
+configs.stamina_fill_pos = 2  -- 1: Top / 2: Mid / 3: Bot
 
 configs.total_games = 100
 

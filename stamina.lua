@@ -1,4 +1,5 @@
 --region Imports
+configs = require(scriptPath() .. "mod/configs")
 counter = require(scriptPath() .. "mod/counter")
 checks = require(scriptPath() .. "mod/checks")
 coords = require(scriptPath() .. "mod/coords")
@@ -27,10 +28,13 @@ while true do
         end
     elseif current_status == status.QUEST_MAIN then
         if checks.prepare_support() then
-            action.click_delay(coords.quest_click)
+            action.click_quest()
         end
     elseif current_status == status.QUEST_SUPPORT then
-        if not checks.prepare_team() then
+        local check_prepare_single = not configs.quest_dual_party and not checks.prepare_team()
+        local check_prepare_dual = configs.quest_dual_party and not checks.prepare_team_dual()
+
+        if check_prepare_single or check_prepare_dual then
             action.click_delay(coords.quest_support)
         end
     elseif current_status == status.QUEST_TEAM then

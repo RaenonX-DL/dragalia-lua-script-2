@@ -15,6 +15,11 @@ images.quest_team = {
     path = "quest-start.png";
     region = Region(1168, 2427, 112, 66);
 }
+
+images.quest_team_dual = {
+    path = "quest-start-dual.png";
+    region = Region(870, 2348, 67, 62);
+}
 --endregion
 
 --region Raid

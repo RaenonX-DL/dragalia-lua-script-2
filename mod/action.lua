@@ -8,6 +8,16 @@ status = require(scriptPath() .. "mod/status")
 
 local action = {}
 
+function action.click_quest()
+    if configs.quest_pos == 1 then
+        action.click_delay(coords.quest_click_1)
+    elseif configs.quest_pos == 2 then
+        action.click_delay(coords.quest_click_2)
+    else
+        scriptExit(string.format("Unhandled quest click position: %d\nScript terminated.", configs.quest_pos))
+    end
+end
+
 --region Stamina Refill
 
 function action.stamina_check_item_fill()
