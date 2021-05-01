@@ -10,6 +10,11 @@ configs.toast_cd_sec = 5
 --endregion
 
 --region Game
+configs.devices = {
+    "S9",
+    "ROG3"
+}
+
 configs.stamina_fill_types = {
     "Honey",
     "Diamantiums",
@@ -40,6 +45,12 @@ end
 
 local function show_quest_config_dialog()
     dialogInit()
+
+    -- Device
+    newRow()
+    addTextView("Device: ")
+    addRelativeRadioGroup("config_device_idx", 1, 2)
+    add_radio_buttons(configs.devices)
 
     -- Play Count
     newRow()
@@ -86,6 +97,8 @@ local function show_quest_config_dialog()
 end
 
 local function load_config_data()
+    configs.device = configs.devices[config_device_idx]
+
     configs.total_games = config_total_games
     configs.quest_pos = config_quest_pos
     configs.quest_dual_party = config_quest_dual_party
@@ -96,6 +109,11 @@ local function load_config_data()
 
     configs.raid_quest = configs.raid_quests[config_raid_idx]
     configs.raid_difficulty = config_raid_difficulty
+
+    if configs.device == "ROG3" then
+        -- Enables the control in the navbar area
+        setImmersiveMode(true)
+    end
 end
 
 show_quest_config_dialog()
