@@ -10,21 +10,96 @@ configs.toast_cd_sec = 5
 --endregion
 
 --region Game
-configs.quest_pos = 1  -- 1 / 2
-configs.quest_dual_party = true
+configs.stamina_fill_types = {
+    "Honey",
+    "Diamantiums",
+    "Wyrmites",
+}
 
-configs.stamina_fill_type = "Gems"  -- Honey / Diamantiums / Gems
-configs.stamina_fill_honey_count = 4
-configs.stamina_fill_pos = 2  -- 1: Top / 2: Mid / 3: Bot
-
-configs.total_games = 100
-
-configs.raid_quest = "Normal"  -- Normal / EX / Hell
-configs.raid_difficulty = 1  -- 1 / 2 (Count from top starting from 1)
+configs.raid_quests = {
+    "Normal",
+    "EX",
+    "Hell"
+}
 --endregion
 
 --region Script
 configs.default_click_delay = 1
+--endregion
+
+--region Functions
+local function add_radio_buttons(tbl)
+    for idx, quest in ipairs(tbl) do
+        if quest == "--Row--" then
+            newRow()
+        else
+            addRadioButton(quest, idx)
+        end
+    end
+end
+
+local function show_quest_config_dialog()
+    dialogInit()
+
+    -- Play Count
+    newRow()
+    addTextView("Play count: ")
+    addEditNumber("config_total_games", 100)
+
+    -- Quest Position
+    newRow()
+    addTextView("Quest Position: ")
+    addEditNumber("config_quest_pos", 1)
+
+    -- Quest Dual Party
+    newRow()
+    addCheckBox("config_quest_dual_party", "Dual Party", false)
+
+    -- Stamina Refill Type
+    newRow()
+    addTextView("AP Refill Type: ")
+    addRelativeRadioGroup("config_fill_type_idx", 1, 3)
+    add_radio_buttons(configs.stamina_fill_types)
+
+    -- Stamina Honey Count
+    newRow()
+    addTextView("AP Refill honey count: ")
+    addEditNumber("config_honey_count", 4)
+
+    -- Stamina Honey Position
+    newRow()
+    addTextView("AP Refill honey position: ")
+    addEditNumber("config_honey_pos", 1)
+
+    -- Raid Quest
+    newRow()
+    addTextView("Raid Quest: ")
+    addRelativeRadioGroup("config_raid_idx", 1, 3)
+    add_radio_buttons(configs.raid_quests)
+
+    -- Raid Difficulty
+    newRow()
+    addTextView("Raid Difficulty: ")
+    addEditNumber("config_raid_difficulty", 2)
+
+    dialogShowFullScreen("Config")
+end
+
+local function load_config_data()
+    configs.total_games = config_total_games
+    configs.quest_pos = config_quest_pos
+    configs.quest_dual_party = config_quest_dual_party
+
+    configs.stamina_fill_type = configs.stamina_fill_types[config_fill_type_idx]
+    configs.stamina_fill_honey_count = config_honey_count
+    configs.stamina_fill_pos = config_honey_pos
+
+    configs.raid_quest = configs.raid_quests[config_raid_idx]
+    configs.raid_difficulty = config_raid_difficulty
+end
+
+show_quest_config_dialog()
+load_config_data()
 --endregion
 
 return configs

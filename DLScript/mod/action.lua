@@ -23,7 +23,7 @@ end
 function action.stamina_check_item_fill()
     if configs.stamina_fill_type == "Honey" then
         return checks.stamina_honey_fill()
-    elseif configs.stamina_fill_type == "Diamantiums" or configs.stamina_fill_type == "Gems" then
+    elseif configs.stamina_fill_type == "Diamantiums" or configs.stamina_fill_type == "Wyrmites" then
         return checks.stamina_diam_gem_fill()
     else
         scriptExit(string.format("Unhandled stamina fill type: %s\nScript terminated.", configs.stamina_fill_type))
@@ -41,7 +41,7 @@ function action.fill_stamina_click()
         click(coords.stamina_honey_fill)
     elseif configs.stamina_fill_type == "Diamantiums" then
         click(coords.stamina_diam_fill)
-    elseif configs.stamina_fill_type == "Gems" then
+    elseif configs.stamina_fill_type == "Wyrmites" then
         click(coords.stamina_gem_fill)
     else
         scriptExit(string.format("Unhandled stamina fill type: %s\nScript terminated.", configs.stamina_fill_type))

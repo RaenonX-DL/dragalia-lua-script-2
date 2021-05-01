@@ -18,7 +18,7 @@ status.CLEAR = "Clear"
 status.CLEAR_RE = "Clear / Re"
 status.CLEAR_RE_CONFIRM = "Clear / Re-Confirm"
 status.STAMINA_FILL = "Stamina / Fill"
-status.STAMINA_DIAM_GEM_FILL = "Stamina / DiamsGems"
+status.STAMINA_DIAM_GEM_FILL = "Stamina / DiamsMites"
 status.STAMINA_HONEY_FILL = "Stamina / Honey"
 status.STAMINA_HONEY_CONFIRM = "Stamina / Honey-Confirm"
 --endregion
