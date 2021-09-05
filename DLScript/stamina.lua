@@ -90,6 +90,7 @@ while true do
         checks.in_game()
         checks.clear()
         checks.conn_error_retryable()
+        checks.close_dialog()  -- App could be killed and restarted then back to the in-game menu screen
     else
         sys.terminate(string.format("Unhandled state: %s\nScript terminated.", current_status))
     end
